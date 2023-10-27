@@ -4,11 +4,12 @@ body{
   margin: 0px;
   outline: 0px;
   border: 0px;
+  overflow: hidden;
 }
 
   .video-player1{
    width:100vw;
-    height: 88vh;
+    height:100vh;
     background-color: rgb(63, 62, 62);
     background-color: rgb(63, 62, 62);
     object-fit: cover;
