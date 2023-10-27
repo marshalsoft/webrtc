@@ -11,14 +11,14 @@ body{
     padding: 10px;
   }
   
-  video1 {
+  video-player1 {
    width:100vw;
     height: 88vh;
     border:2px solid greenyellow;
     background-color: rgb(63, 62, 62);
 
   }
- video2 {
+ video-player2 {
    width:100pz;
     height:150px;
     border:2px solid greenyellow;
