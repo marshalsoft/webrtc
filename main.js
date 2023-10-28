@@ -6,13 +6,11 @@ document.addEventListener("message", function (event) {
     window.ReactNativeWebView.postMessage(event.data);
     }
 });
-const SendMassege = ()=>{
-    // window.parent.postMessage("I'm loaded", "*");
+const SendMassege = (data)=>{
     if(window.ReactNativeWebView) {
-        alert("kk")
-    window.ReactNativeWebView.postMessage.postMessage("I'm loaded", "*");
+    window.ReactNativeWebView.postMessage.postMessage(JSON.stringify(data), "*");
     }else{
-        alert("not avaliable");
+     window.parent.postMessage(JSON.stringify(data), "*");
     }
 }
 window.onload = ()=>{
