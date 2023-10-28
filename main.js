@@ -2,7 +2,8 @@ let peerConnection = new RTCPeerConnection()
 let localStream;
 let remoteStream;
 const SendMassege = ()=>{
-    window.parent.postMessage("I'm loaded", "*");
+    // window.parent.postMessage("I'm loaded", "*");
+    window.ReactNativeWebView.postMessage.postMessage("I'm loaded", "*");
 }
 window.onload = ()=>{
 const queryString = window.location.search;
