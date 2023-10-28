@@ -1,13 +1,29 @@
 let peerConnection = new RTCPeerConnection()
 let localStream;
 let remoteStream;
-const RoomId = window.location.search("roomId");
-alert(RoomId);
+const SendMassege = ()=>{
+    window.parent.postMessage("I'm loaded", "*");
+}
+window.onload = ()=>{
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const roomId = urlParams.get("roomId");
+const ApiKey = urlParams.get("ApiKey");
+const AccessToken = urlParams.get("AccessToken");
+if(roomId && ApiKey && AccessToken)
+{
+ window.parent.postMessage("I'm loaded", "*");
+}else{
+    console.log(urlParams.get("roomId"));
+}
+
+}
 let init = async () => {
     localStream = await navigator.mediaDevices.getUserMedia({video:true, audio:false})
     remoteStream = new MediaStream()
     document.getElementById('user-1').srcObject = localStream
-    document.getElementById('user-2').srcObject = remoteStream
+    document.getElementById('user-2').srcObject = remoteStream;
+    document.getElementById('user-2').style.opacity = 0;
     localStream.getTracks().forEach((track) => {
         peerConnection.addTrack(track, localStream);
     });
@@ -60,6 +76,6 @@ let addAnswer = async () => {
 
 init()
 
-document.getElementById('create-offer').addEventListener('click', createOffer)
+// document.getElementById('create-offer').addEventListener('click', createOffer)
 document.getElementById('create-answer').addEventListener('click', createAnswer)
 document.getElementById('add-answer').addEventListener('click', addAnswer)
