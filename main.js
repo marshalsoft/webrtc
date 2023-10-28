@@ -1,9 +1,17 @@
 let peerConnection = new RTCPeerConnection()
 let localStream;
 let remoteStream;
+document.addEventListener("message", function (event) {
+    if(window.ReactNativeWebView) {
+    window.ReactNativeWebView.postMessage(event.data);
+    }
+});
 const SendMassege = ()=>{
     // window.parent.postMessage("I'm loaded", "*");
+    if(window.ReactNativeWebView) {
+        alert("kk")
     window.ReactNativeWebView.postMessage.postMessage("I'm loaded", "*");
+    }
 }
 window.onload = ()=>{
 const queryString = window.location.search;
