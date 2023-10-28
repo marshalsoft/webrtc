@@ -1,13 +1,13 @@
 let peerConnection = new RTCPeerConnection()
 let localStream;
 let remoteStream;
-
+const RoomId = window.location.search("roomId");
+alert(RoomId);
 let init = async () => {
     localStream = await navigator.mediaDevices.getUserMedia({video:true, audio:false})
     remoteStream = new MediaStream()
     document.getElementById('user-1').srcObject = localStream
     document.getElementById('user-2').srcObject = remoteStream
-
     localStream.getTracks().forEach((track) => {
         peerConnection.addTrack(track, localStream);
     });
@@ -20,8 +20,6 @@ let init = async () => {
 }
 
 let createOffer = async () => {
-
-
     peerConnection.onicecandidate = async (event) => {
         //Event that fires off when a new offer ICE candidate is created
         if(event.candidate){
