@@ -1,4 +1,4 @@
-let peerConnection = new RTCPeerConnection()
+let peerConnection = new RTCPeerConnection();
 let localStream;
 let remoteStream;
 document.addEventListener("message", function (event) {
@@ -11,6 +11,8 @@ const SendMassege = ()=>{
     if(window.ReactNativeWebView) {
         alert("kk")
     window.ReactNativeWebView.postMessage.postMessage("I'm loaded", "*");
+    }else{
+        alert("not avaliable");
     }
 }
 window.onload = ()=>{
